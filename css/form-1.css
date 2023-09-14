@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0px;
+   
     padding-bottom: 12px;
     
 }
@@ -45,6 +45,7 @@ label{
     font-size: 15px;
     font-weight: 700;   
 }
+
 #name{
     width: 180px;
     font-family: 'Inter', sans-serif;
@@ -67,11 +68,23 @@ textarea{
     display: flex;
     align-items: center;
 }
-#sim,#nao{
+#elipse1,#elipse2 {
     width: 20px;
     height: 20px;
     margin: 5px;
+    background-color:#F2EDED;
+    border-radius: 50%;
+    cursor: pointer;
+  
+    
 }
+#sim,#nao{
+    font-family: 'Inter', sans-serif;
+    color: var(--segundo-titulo);
+    font-size: 15px;
+    font-weight: 700;
+}
+
 .btn{
     display: flex;
     align-items: center;
