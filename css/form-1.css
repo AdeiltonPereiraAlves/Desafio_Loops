@@ -1,0 +1,110 @@
+
+.game-list{
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 0px;
+}
+.form-1,.lista{ /* adicionado css no forme e na lista*/
+    
+    background-color: var(--bg-main);
+    height: 310px;
+    width: 220px;
+    padding: 20px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    
+}
+#cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    padding-bottom: 12px;
+    
+}
+h2,label,h3{
+    color: var(--segundo-titulo);
+    font-family: 'Inter', sans-serif;
+    
+   
+}
+h2{
+   font-size: 20px;
+   font-weight: 700;
+   
+}
+h3{
+   font-size: 15px;
+    padding-bottom: 5px;
+}
+label{
+    font-size: 15px;
+    font-weight: 700;   
+}
+#name{
+    width: 190px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 4px;
+   
+    padding: 1px;
+    border: 1px solid #737171;
+}
+textarea{
+    height: 60px;
+    width: 190px;
+    font-size: 10px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #737171;
+}
+#favoritar{
+    display: flex;
+    align-items: center;
+}
+#sim,#nao{
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    margin-top: 5px;
+
+}
+button{
+    width: 150px;
+    height: 30px;
+    border-radius: 28px;
+    background-color: var(--btn-color);
+    border: 1px solid #737171;
+    color: var(--bg-main);
+    position: absolute;
+    cursor: pointer;
+   
+
+
+}
+button:hover{
+    background-color: var(--btn-hover);
+}
+
+.area-form{
+    padding-bottom: 10px;
+   
+}
+/* ----------------- lista de games ---------------*/
+.lista-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
