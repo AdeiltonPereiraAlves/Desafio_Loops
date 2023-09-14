@@ -120,5 +120,90 @@ button:hover{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
+}
+.scroll{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 190px;
+    height: 200px;
+    scrollbar-width: thin;
+    scrollbar-color: #333333 #999999;
+}
+li{
+    list-style: none;
+}
+.jogo-container{
+    display: flex;
+    position: relative;
+    border-radius: 5px;
+    padding: 5px;
+    height: 80px;
+   
+    background-color: var(--game-favorito);
+    width: 180px;
+  
+    
+}
+#joystick{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h4{
+    color: var(--bg-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+
+}
+#action{
+    display: flex;
+    width: 100%;
+    justify-content:end;
+    align-content: center;
+}
+#excluir,#estrela{
+    display: flex;
+    padding: 2px;
+    height: 30px;
+    justify-content: center;
+
+}
+#estrela{
+    position: relative;
+    
+    justify-content: end;
+    right: 0;
+    top: 0;
+}
+.titulo{
+    word-wrap: break-word;
+    overflow: hidden;
+    width: auto;
 }
 
+#conteudo{
+    display: flex;
+    width: auto;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    
+}
+ p{
+    color: #F2EDED;
+    word-wrap: break-word;
+    font-size: 5px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    width: 300px;
+
+}
+
+#area-descricao{
+    position: relative;
+
+    height: 40px;
+    width: 40px;
+
+}
