@@ -46,16 +46,17 @@ label{
     font-weight: 700;   
 }
 #name{
-    width: 190px;
+    width: 180px;
     font-family: 'Inter', sans-serif;
     border-radius: 4px;
-   
-    padding: 1px;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 5px;
     border: 1px solid #737171;
 }
 textarea{
     height: 60px;
-    width: 190px;
+    width: 180px;
     font-size: 10px;
     font-family: 'Inter', sans-serif;
     border-radius: 5px;
