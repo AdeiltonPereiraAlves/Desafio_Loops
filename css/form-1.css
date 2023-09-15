@@ -149,6 +149,7 @@ li{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 2px;
 }
 h4{
     color: var(--bg-main);
@@ -170,9 +171,17 @@ h4{
     height: 30px;
     justify-content: center;
     cursor: pointer;
+   
 
 }
-
+#img-joystick{
+    height: 30px;
+    width: 30px;
+}
+#img-estrela,#img-lixo{
+    height: 10px;
+    width: 10px;
+}
 .titulo{
     word-wrap: break-word;
     overflow: hidden;
