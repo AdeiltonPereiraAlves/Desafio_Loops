@@ -138,7 +138,7 @@ li{
     position: relative;
     border-radius: 5px;
     padding: 5px;
-    height: 80px;
+    height: 60px;
    
     background-color: var(--game-lista);
     width: 180px;
@@ -159,7 +159,7 @@ h4{
 }
 #action{
     display: flex;
-    width: 100%;
+    width: auto;
     justify-content:end;
     align-content: center;
 }
@@ -175,8 +175,8 @@ h4{
 
 }
 #img-joystick{
-    height: 30px;
-    width: 30px;
+    height: 24px;
+    width: 24px;
 }
 #img-estrela,#img-lixo{
     height: 10px;
@@ -191,15 +191,17 @@ h4{
 #conteudo{
     display: flex;
     width: auto;
-    height: 50px;
+    height: auto;
     align-items: center;
     justify-content: center;
+    margin-top: 0;
+    
     
 }
  p{
     color: #F2EDED;
     word-wrap: break-word;
-    font-size: 5px;
+    font-size: 4px;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     width: 300px;
