@@ -179,8 +179,12 @@ h4{
     height: 24px;
     width: 24px;
 }
-#img-estrela,#img-lixo{
-    height: 10px;
+#img-estrela{
+    height: 11px;
+    width: 11px;
+}
+#img-lixo{
+    height: 11px;
     width: 10px;
 }
 .titulo{
