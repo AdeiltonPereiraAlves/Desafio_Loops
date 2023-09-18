@@ -42,7 +42,7 @@ function adicionarJogo(jogo) {
     let row = document.createElement("div");
     
     row.innerHTML = `
-    <div id="gameDiv" class="${classSet}" >
+    <div data-index="${divId}" id="gameDiv" class="${classSet}" >
 
     <div id="joystick">
         <img id="img-joystick" src="img/joystick-svgrepo-com 1.png" alt="joystick">
@@ -71,25 +71,33 @@ function adicionarJogo(jogo) {
 
 function apagarJogo(element) {
     elementId = element.closest("#gameDiv");
+    id = elementId.getAttribute("data-index");
+    gameListArray.splice(id, 1);
+
     elementId.remove();
+    console.log(gameListArray);
 }
 
 function setStar(element){
     parentE = element.closest("#gameDiv");
     imgDiv = element.querySelector("img");
 
+    id = parentE.getAttribute("data-index");
+    
+
     if(parentE.classList.contains("jogo-container")){
         parentE.classList.remove("jogo-container");
         parentE.classList.add("jogo-container-fav");
         imgDiv.src = "img/star-outline-svgrepo-com 1.png";
+        gameListArray[id].favorito = "Sim";
     } else{
         parentE.classList.add("jogo-container");
         parentE.classList.remove("jogo-container-fav");
         imgDiv.src = "img/estrela transparente.png";
+        gameListArray[id].favorito = "nao";
     }
-    
-    
-    
+    console.log(gameListArray);
+
 }
 
 // Persistência de dados
