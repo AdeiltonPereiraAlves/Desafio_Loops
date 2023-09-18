@@ -24,6 +24,7 @@ gameForm.addEventListener('submit', function (e) {
        gameListArray.push(jogo);
        saveGameList();
        gameForm.reset();
+       checkEmptyList();
     }
 });
 
@@ -72,14 +73,15 @@ function adicionarJogo(jogo) {
 }
 
 function apagarJogo(element) {
-    elementId = element.closest("#gameDiv");
+    let elementId = element.closest("#gameDiv");
     id = elementId.getAttribute("data-index");
     gameListArray.splice(id, 1);
-
+    divId --;
     elementId.remove();
 
     reloadGames();
     saveGameList();
+    checkEmptyList();
 }
 
 function setStar(element){
@@ -128,6 +130,7 @@ function saveGameList(){
 function loadPage(){
 
     addLoadedElements();
+    checkEmptyList();
     
 }
 
@@ -139,5 +142,14 @@ function addLoadedElements(){
             addElement(element);
             gameListArray.push(element);
         });
+    }
+}
+
+function checkEmptyList(){
+    const message = document.getElementById('emptyListMessage');
+    if(gameListArray.length == 0){
+        message.style.display = "block";
+    } else{
+        message.style.display = "none";
     }
 }

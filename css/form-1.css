@@ -292,3 +292,8 @@ select {
 	padding: 5px;
 	border: 1px solid #737171;
 }
+
+#emptyListMessage{
+    font-size: 13px;
+    color: gray;
+}
