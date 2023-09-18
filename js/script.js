@@ -5,6 +5,8 @@ let starSet = "";
 let classSet = "";
 let divId = 0;
 
+
+
 gameForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -20,6 +22,7 @@ gameForm.addEventListener('submit', function (e) {
        };
        addElement(jogo);
        gameListArray.push(jogo);
+       saveGameList();
        gameForm.reset();
     }
 });
@@ -33,7 +36,6 @@ function addElement(jogo){
         starSet =  `<img id="img-estrela" src="img/estrela transparente.png" alt="estrela"></img>`;
     }
     adicionarJogo(jogo);
-    console.log(gameListArray);
 }
 
 
@@ -75,8 +77,9 @@ function apagarJogo(element) {
     gameListArray.splice(id, 1);
 
     elementId.remove();
-    console.log(gameListArray);
+
     reloadGames();
+    saveGameList();
 }
 
 function setStar(element){
@@ -97,15 +100,15 @@ function setStar(element){
         imgDiv.src = "img/estrela transparente.png";
         gameListArray[id].favorito = "nao";
     }
-    console.log(gameListArray);
 
+    saveGameList();
 }
 
 function reloadGames() {
   
 
     const gameDivs = gameList.querySelectorAll("#gameDiv");
-    console.log(gameDivs);
+    
     let index = 0;
     gameDivs.forEach(element => {
         element.setAttribute("data-index", index);
@@ -116,3 +119,25 @@ function reloadGames() {
 }
 // Persistência de dados
 
+document.onload = loadPage();
+
+function saveGameList(){
+    localStorage.setItem("gameList", JSON.stringify(gameListArray));
+}
+
+function loadPage(){
+
+    addLoadedElements();
+    
+}
+
+function addLoadedElements(){
+    if(localStorage.length != 0){
+        let itens = JSON.parse(localStorage.getItem("gameList"));
+        console.log(itens);
+        itens.forEach(element => {
+            addElement(element);
+            gameListArray.push(element);
+        });
+    }
+}
