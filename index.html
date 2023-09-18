@@ -33,40 +33,32 @@
                     <input type="text" name="nome" id="name" placeholder="Digite o nome do game...">
                 </div>
                 <div class="area-form">
-                    <label for="descricao">Descrição</label>
+                    <label for="descricao" >Descrição</label>
                     <br>
-                    <textarea rows="4" cols="50">
-
-                    </textarea>
+                    <textarea id="Ldescricao" rows="4" cols="50"></textarea>
                     <br>
                 </div>
                 <div class="area-form">
-                    <h3>Marcar como favorito</h3>
-                    <div class="area-form" id="favoritar">
-                        <div id="elipse1">
-                            <img id="img-elipse1" src="img/Ellipse 3.png" alt="elipse1">
-                        </div>
-                        <div id="sim">Sim</div>
-                        <div id="elipse2">
-                            <img id="img-elipse2" src="img/Ellipse 3.png" alt="elipse2">
-                        </div>
-                        <div id="nao">Não</div>
-
-                    </div>
-                    <div class="btn">
-                        <button>Salvar</button>
-                    </div>
-                </div>
+					<h3>Marcar como favorito</h3>
+					<div class="area-form" id="favoritar">
+						<select id="favorito" name="favorito">
+							<option value="Sim">Sim</option>
+							<option value="Não">Não</option>
+						</select>
+					</div>
+					<div class="btn">
+						<button id="saveButton">Salvar</button>
+					</div>
+				</div>
             </form>
             <div class="lista">
                 <div class="lista-header">
                     <h2>Lista</h2>
                 </div>
-
-                <div class="scroll">
+                <div class="scroll" id="gameList">
                     <ul>
                         <li>
-                            <div class="jogo-container" id="list-jogo">
+                            <!-- <div class="jogo-container" >
 
                                 <div id="joystick">
                                     <img id="img-joystick" src="img/joystick-svgrepo-com 1.png" alt="joystick">
@@ -81,15 +73,17 @@
                                     </div>
                                 </div>
                                 <div id="action">
-                                    <div id="excluir">
-                                       <img id="img-lixo" src="img/trash 1.png" alt="lixo">
+                                    <div id="excluir" onclick="apagarJogo(this)">
+                                        <img id="img-lixo" src="img/trash 1.png" alt="lixo">
+                                       
                                     </div>
-                                    <div id="estrela">
+                                    <div id="estrela" onclick="clickStar(this)">
                                         <img id="img-estrela" src="img/estrela transparente.png" alt="estrela">
                                     </div>
                                 </div>
 
-                            </div>
+                            </div> -->
+                            
                         </li>
                     </ul>
                 </div>
@@ -99,6 +93,7 @@
 
         </main>
     </div>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
