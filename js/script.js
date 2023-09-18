@@ -42,7 +42,7 @@ function adicionarJogo(jogo) {
     let row = document.createElement("div");
     
     row.innerHTML = `
-    <div id="${divId}" class="${classSet}" >
+    <div id="gameDiv" class="${classSet}" >
 
     <div id="joystick">
         <img id="img-joystick" src="img/joystick-svgrepo-com 1.png" alt="joystick">
@@ -57,7 +57,7 @@ function adicionarJogo(jogo) {
         <div id="excluir" onclick="apagarJogo(this)">
            <img id="img-lixo" src="img/trash 1.png" alt="lixo">
         </div>
-        <div id="estrela">
+        <div id="estrela" onclick="setStar(this)">
           ${starSet}
         </div>
     </div>
@@ -70,9 +70,26 @@ function adicionarJogo(jogo) {
 }
 
 function apagarJogo(element) {
-    elementId = element.closest(".")
-    const row = element.parentElement.parentElement ;
-    row.remove();
+    elementId = element.closest("#gameDiv");
+    elementId.remove();
+}
+
+function setStar(element){
+    parentE = element.closest("#gameDiv");
+    imgDiv = element.querySelector("img");
+
+    if(parentE.classList.contains("jogo-container")){
+        parentE.classList.remove("jogo-container");
+        parentE.classList.add("jogo-container-fav");
+        imgDiv.src = "img/star-outline-svgrepo-com 1.png";
+    } else{
+        parentE.classList.add("jogo-container");
+        parentE.classList.remove("jogo-container-fav");
+        imgDiv.src = "img/estrela transparente.png";
+    }
+    
+    
+    
 }
 
 // Persistência de dados
