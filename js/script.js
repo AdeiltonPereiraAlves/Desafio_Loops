@@ -76,6 +76,7 @@ function apagarJogo(element) {
 
     elementId.remove();
     console.log(gameListArray);
+    reloadGames();
 }
 
 function setStar(element){
@@ -100,5 +101,18 @@ function setStar(element){
 
 }
 
+function reloadGames() {
+  
+
+    const gameDivs = gameList.querySelectorAll("#gameDiv");
+    console.log(gameDivs);
+    let index = 0;
+    gameDivs.forEach(element => {
+        element.setAttribute("data-index", index);
+        index++;
+    });
+
+
+}
 // Persistência de dados
 
