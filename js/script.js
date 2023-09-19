@@ -69,7 +69,8 @@ function adicionarJogo(jogo) {
         `;
 
         divId++;
-        gameList.appendChild(row);
+        (jogo.favorito == "Sim") ? insertGameBefore(row, true) : insertGameBefore(row, false);
+        
 }
 
 function apagarJogo(element) {
@@ -96,11 +97,14 @@ function setStar(element){
         parentE.classList.add("jogo-container-fav");
         imgDiv.src = "img/star-outline-svgrepo-com 1.png";
         gameListArray[id].favorito = "Sim";
+        insertGameBefore(parentE, true);
+
     } else{
         parentE.classList.add("jogo-container");
         parentE.classList.remove("jogo-container-fav");
         imgDiv.src = "img/estrela transparente.png";
-        gameListArray[id].favorito = "nao";
+        gameListArray[id].favorito = "Não";
+        insertGameBefore(parentE, false);
     }
 
     saveGameList();
@@ -139,8 +143,9 @@ function addLoadedElements(){
         let itens = JSON.parse(localStorage.getItem("gameList"));
         console.log(itens);
         itens.forEach(element => {
-            addElement(element);
-            gameListArray.push(element);
+                addElement(element);
+                gameListArray.push(element);
+             
         });
     }
 }
@@ -152,4 +157,15 @@ function checkEmptyList(){
     } else{
         message.style.display = "none";
     }
+}
+
+function insertGameBefore(element, condition){
+    if(condition){
+        element.remove();
+        gameList.insertBefore(element, gameList.firstChild);
+    } else{
+        element.remove();
+        gameList.appendChild(element);
+    }
+    
 }
