@@ -13,6 +13,8 @@ gameForm.addEventListener('submit', function (e) {
     const nome = document.getElementById('name').value;
     const descricao = document.getElementById('Ldescricao').value;
     const favorito = document.getElementById('favorito').value;
+    
+    // Condição para apenas ser aceita se os campos estiverem preenchidos
     if (nome && descricao) {
 
         const jogo = {
@@ -20,10 +22,12 @@ gameForm.addEventListener('submit', function (e) {
             descricao,
             favorito,
         };
+
         isLoad = false;
         addElement(jogo);
-
         gameForm.reset();
+
+        //Checa se a lista está vazia para mostrar a mensagem
         checkEmptyList();
     }
     console.log(gameListArray);
@@ -39,8 +43,6 @@ function addElement(jogo) {
     }
     adicionarJogo(jogo);
 }
-
-
 
 function adicionarJogo(jogo) {
     let row = document.createElement("div");
@@ -74,6 +76,22 @@ function adicionarJogo(jogo) {
 
 }
 
+function apagarJogo(element) {
+    // Pega o id da div pai
+    let elementId = element.closest("#gameDiv");
+    id = elementId.getAttribute("data-index");
+    gameListArray.splice(id, 1);
+    elementId.remove();
+
+    divId--;
+
+    // Respectivamente funções de: Atualizar o id das divs; Salvar a lista no localStorage; 
+    // Checar se a lista está vazia para exibir a mensagem
+    reloadGames();
+    saveGameList();
+    checkEmptyList();
+}
+
 function checkFav(jogo, element) {
     if (isLoad) {
         gameList.appendChild(element);
@@ -87,27 +105,12 @@ function checkFav(jogo, element) {
         }
         saveGameList();
     }
-
-}
-
-function apagarJogo(element) {
-    let elementId = element.closest("#gameDiv");
-    id = elementId.getAttribute("data-index");
-    gameListArray.splice(id, 1);
-    divId--;
-    elementId.remove();
-
-    reloadGames();
-    saveGameList();
-    checkEmptyList();
 }
 
 function setStar(element) {
     parentE = element.closest("#gameDiv");
     imgDiv = element.querySelector("img");
-
     id = parentE.getAttribute("data-index");
-
 
     if (parentE.classList.contains("jogo-container")) {
         parentE.classList.remove("jogo-container");
@@ -116,8 +119,8 @@ function setStar(element) {
         gameListArray[id].favorito = "Sim";
         changeIdGame(id, true);
         insertGameBefore(parentE, true);
-
-    } else {
+    } 
+    else {
         parentE.classList.add("jogo-container");
         parentE.classList.remove("jogo-container-fav");
         imgDiv.src = "img/estrela transparente.png";
@@ -125,7 +128,6 @@ function setStar(element) {
         changeIdGame(id, false);
         insertGameBefore(parentE, false);
     }
-
     saveGameList();
     console.log(gameListArray);
 }
@@ -153,31 +155,26 @@ function changeIdGame(id, condition){
 }
 
 function reloadGames() {
-
-
     const gameDivs = gameList.querySelectorAll("#gameDiv");
-
     let index = 0;
     gameDivs.forEach(element => {
         element.setAttribute("data-index", index);
         index++;
     });
-
-
 }
+
 // Persistência de dados
 
 document.onload = loadPage();
 
 function saveGameList() {
+    // Salva no localStorage como do tipo json
     localStorage.setItem("gameList", JSON.stringify(gameListArray));
 }
 
 function loadPage() {
-
     addLoadedElements();
     checkEmptyList();
-
 }
 
 function addLoadedElements() {
@@ -209,4 +206,3 @@ function checkEmptyList() {
         message.style.display = "none";
     }
 }
-
