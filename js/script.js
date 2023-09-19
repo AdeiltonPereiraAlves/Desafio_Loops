@@ -4,37 +4,38 @@ let gameListArray = [];
 let starSet = "";
 let classSet = "";
 let divId = 0;
+isLoad = false;
 
-
-
+// Envio do formulário
 gameForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const nome = document.getElementById('name').value;
     const descricao = document.getElementById('Ldescricao').value;
     const favorito = document.getElementById('favorito').value;
-    if( nome && descricao ){
-       
-       const jogo = {
-        nome,
-        descricao,
-        favorito,
-       };
-       addElement(jogo);
-       gameListArray.push(jogo);
-       saveGameList();
-       gameForm.reset();
-       checkEmptyList();
+    if (nome && descricao) {
+
+        const jogo = {
+            nome,
+            descricao,
+            favorito,
+        };
+        isLoad = false;
+        addElement(jogo);
+
+        gameForm.reset();
+        checkEmptyList();
     }
+    console.log(gameListArray);
 });
 
-function addElement(jogo){
-    if(jogo.favorito == "Sim"){
+function addElement(jogo) {
+    if (jogo.favorito == "Sim") {
         classSet = "jogo-container-fav";
-        starSet =  `<img id="img-estrela" src="img/star-outline-svgrepo-com 1.png" alt="estrela"></img>`;  
-    } else{
+        starSet = `<img id="img-estrela" src="img/star-outline-svgrepo-com 1.png" alt="estrela"></img>`;
+    } else {
         classSet = "jogo-container";
-        starSet =  `<img id="img-estrela" src="img/estrela transparente.png" alt="estrela"></img>`;
+        starSet = `<img id="img-estrela" src="img/estrela transparente.png" alt="estrela"></img>`;
     }
     adicionarJogo(jogo);
 }
@@ -43,7 +44,7 @@ function addElement(jogo){
 
 function adicionarJogo(jogo) {
     let row = document.createElement("div");
-    
+
     row.innerHTML = `
     <div data-index="${divId}" id="gameDiv" class="${classSet}" >
 
@@ -68,16 +69,32 @@ function adicionarJogo(jogo) {
 </div>
         `;
 
-        divId++;
-        (jogo.favorito == "Sim") ? insertGameBefore(row, true) : insertGameBefore(row, false);
-        
+    divId++;
+    checkFav(jogo, row);
+
+}
+
+function checkFav(jogo, element) {
+    if (isLoad) {
+        gameList.appendChild(element);
+    } else {
+        if (jogo.favorito == "Sim") {
+            insertGameBefore(element, true)
+            gameListArray.unshift(jogo);
+        } else {
+            insertGameBefore(element, false);
+            gameListArray.push(jogo);
+        }
+        saveGameList();
+    }
+
 }
 
 function apagarJogo(element) {
     let elementId = element.closest("#gameDiv");
     id = elementId.getAttribute("data-index");
     gameListArray.splice(id, 1);
-    divId --;
+    divId--;
     elementId.remove();
 
     reloadGames();
@@ -85,36 +102,61 @@ function apagarJogo(element) {
     checkEmptyList();
 }
 
-function setStar(element){
+function setStar(element) {
     parentE = element.closest("#gameDiv");
     imgDiv = element.querySelector("img");
 
     id = parentE.getAttribute("data-index");
-    
 
-    if(parentE.classList.contains("jogo-container")){
+
+    if (parentE.classList.contains("jogo-container")) {
         parentE.classList.remove("jogo-container");
         parentE.classList.add("jogo-container-fav");
         imgDiv.src = "img/star-outline-svgrepo-com 1.png";
         gameListArray[id].favorito = "Sim";
+        changeIdGame(id, true);
         insertGameBefore(parentE, true);
 
-    } else{
+    } else {
         parentE.classList.add("jogo-container");
         parentE.classList.remove("jogo-container-fav");
         imgDiv.src = "img/estrela transparente.png";
         gameListArray[id].favorito = "Não";
+        changeIdGame(id, false);
         insertGameBefore(parentE, false);
     }
 
     saveGameList();
+    console.log(gameListArray);
+}
+
+function insertGameBefore(element, condition) {
+    if (condition) {
+        element.remove();
+        gameList.insertBefore(element, gameList.firstChild);
+    } else {
+        element.remove();
+        gameList.appendChild(element);
+    }
+    reloadGames();
+
+}
+
+function changeIdGame(id, condition){
+    if(condition){
+        let objetoRemovido = gameListArray.splice(id, 1)[0];
+        gameListArray.unshift(objetoRemovido);
+    } else{
+        let objetoRemovido = gameListArray.splice(id, 1)[0];
+        gameListArray.push(objetoRemovido);
+    }
 }
 
 function reloadGames() {
-  
+
 
     const gameDivs = gameList.querySelectorAll("#gameDiv");
-    
+
     let index = 0;
     gameDivs.forEach(element => {
         element.setAttribute("data-index", index);
@@ -127,45 +169,44 @@ function reloadGames() {
 
 document.onload = loadPage();
 
-function saveGameList(){
+function saveGameList() {
     localStorage.setItem("gameList", JSON.stringify(gameListArray));
 }
 
-function loadPage(){
+function loadPage() {
 
     addLoadedElements();
     checkEmptyList();
-    
+
 }
 
-function addLoadedElements(){
-    if(localStorage.length != 0){
+function addLoadedElements() {
+    if (localStorage.length != 0) {
+        isLoad = true;
         let itens = JSON.parse(localStorage.getItem("gameList"));
         console.log(itens);
         itens.forEach(element => {
+            if (element.favorito == "Sim") {
                 addElement(element);
                 gameListArray.push(element);
-             
+            }
         });
+        itens.forEach(element => {
+            if (element.favorito == "Não") {
+                addElement(element);
+                gameListArray.push(element);
+            }
+        });
+
     }
 }
 
-function checkEmptyList(){
+function checkEmptyList() {
     const message = document.getElementById('emptyListMessage');
-    if(gameListArray.length == 0){
+    if (gameListArray.length == 0) {
         message.style.display = "block";
-    } else{
+    } else {
         message.style.display = "none";
     }
 }
 
-function insertGameBefore(element, condition){
-    if(condition){
-        element.remove();
-        gameList.insertBefore(element, gameList.firstChild);
-    } else{
-        element.remove();
-        gameList.appendChild(element);
-    }
-    
-}
