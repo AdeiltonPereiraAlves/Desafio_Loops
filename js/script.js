@@ -4,7 +4,7 @@ let gameListArray = [];
 let starSet = "";
 let classSet = "";
 let divId = 0;
-isLoad = false;
+isLoad = false; 
 
 // Envio do formulário
 gameForm.addEventListener('submit', function (e) {
@@ -33,6 +33,7 @@ gameForm.addEventListener('submit', function (e) {
     console.log(gameListArray);
 });
 
+// Verifica se o jogo é favorito, se sim muda a classe e estrela
 function addElement(jogo) {
     if (jogo.favorito == "Sim") {
         classSet = "jogo-container-fav";
