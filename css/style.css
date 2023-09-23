@@ -33,7 +33,7 @@ span{
     color: var(--titulo-main);
     text-align: center;
     font-family:  'Inter', sans-serif;
-    font-size: 30px;
+    font-size: 2.9rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;
@@ -42,7 +42,7 @@ span{
 h1{
     color: var(--bg-main);
     font-family: Inter;
-    font-size: 30px;
+    font-size: 2.9rem;
     font-style: normal;
     font-weight: 900;
     line-height: normal;

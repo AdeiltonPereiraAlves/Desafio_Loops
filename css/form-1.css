@@ -10,12 +10,13 @@
 .form-1,.lista{ /* adicionado css no forme e na lista*/
     
     background-color: var(--bg-main);
-    height: 314px;
-    width: 220px;
+    width: 27.5rem;
+    height: 35rem;
     padding: 20px;
     border-radius: 5px;
     justify-content: center;
     align-items: center;
+    
     
 }
 
@@ -23,18 +24,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-   
+    font-size: 1.5rem;
     padding-bottom: 12px;
     
 }
+
 h2,label,h3{
     color: var(--segundo-titulo);
     font-family: 'Inter', sans-serif;
-    
-   
+}
+
+#labelId{
+    font-size: 1.3rem;
 }
 h2{
-   font-size: 20px;
+   font-size: 1.5rem;
    font-weight: 700;
    
 }
@@ -50,14 +54,16 @@ label{
 }
 
 #name{
-    width: 180px;
+    width: 400px;
+    height: 40px;
     font-family: 'Inter', sans-serif;
     border-radius: 4px;
-    font-size: 8px;
+    font-size: 1.0rem;
     font-weight: bold;
     padding: 5px;
     border: 1px solid #737171;
 }
+
 textarea{
     height: 60px;
     width: 180px;
@@ -94,14 +100,15 @@ textarea{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 30px;
     position: relative;
     margin-top: 5px;
 
 }
 button{
-    width: 150px;
-    height: 30px;
+    width: 200px;
+    height: 40px;
+    font-size: 1.3rem;
     border-radius: 28px;
     background-color: var(--btn-color);
     border: 1px solid #737171;
@@ -122,10 +129,11 @@ button:hover{
 }
 
 #Ldescricao {
-    max-width: 180px; 
-    max-height: 50px; 
-    /* resize: none; Impedindo a descrição de aumentar */
-    font-size: 8px;
+    min-width: 400px; 
+    min-height: 150px; 
+    font-size: 1.0rem;
+    resize: none; 
+   
     font-weight: bold;
 }
 
@@ -139,8 +147,8 @@ button:hover{
 .scroll{
     overflow-y: scroll;
     overflow-x: hidden;
-    width: 190px;
-    height: 240px;
+    width: 400px;
+    height: 440px;
     scrollbar-width:thin;
     scrollbar-color: #333333 #999999;
    
@@ -172,10 +180,10 @@ li{
     position: relative;
     border-radius: 5px;
     padding: 5px;
-    height: 60px;
+    height: 100px;
    
     background-color: var(--game-lista);
-    width: 180px;
+    width: 390px;
     margin-bottom: 3px;
   
     
@@ -186,10 +194,10 @@ li{
     position: relative;
     border-radius: 5px;
     padding: 5px;
-    height: 60px;
+    height: 100px;
    
     background-color: var(--game-favorito);
-    width: 180px;
+    width: 390px;
     margin-bottom: 3px;
   
     
@@ -203,7 +211,7 @@ li{
 h4{
     color: var(--bg-main);
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
+    font-size: 1.4rem;
 
 }
 #action{
@@ -224,16 +232,16 @@ h4{
 
 }
 #img-joystick{
-    height: 24px;
-    width: 24px;
+    height: 50px;
+    width: 50px;
 }
 #img-estrela{
-    height: 11px;
-    width: 11px;
+    height: 25px;
+    width: 25px;
 }
 #img-lixo{
-    height: 11px;
-    width: 10px;
+    height: 25px;
+    width: 25px;
 }
 .titulo{
     word-wrap: break-word;
@@ -244,6 +252,7 @@ h4{
 
 
 #conteudo{
+    
     display: flex;
     width: auto;
     height: auto;
@@ -256,7 +265,7 @@ h4{
  p{
     color: #F2EDED;
     word-wrap:break-word;
-    font-size: 6px;
+    font-size: 1.0rem;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
     width: 300px;
@@ -290,13 +299,13 @@ select {
 	margin-bottom: 10px;
 	font-family: 'Inter', sans-serif;
 	border-radius: 4px;
-	font-size: 8px;
+	font-size: .8rem;
 	font-weight: bold;
 	padding: 5px;
 	border: 1px solid #737171;
 }
 
 #emptyListMessage{
-    font-size: 13px;
+    font-size: 1.3rem;
     color: gray;
 }
