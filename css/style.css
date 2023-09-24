@@ -16,11 +16,14 @@ body{
     --game-lista: #3C4EFF;
     --game-favorito: #10086A; 
 }
-.bg-container{
+body{
     background-image: url("../img/Imagem-plano-de-fundo.png");
     background-position: center;
     background-size: cover;
-    height: 100vh;
+  
+
+    height: auto;
+    
 }
 header{
     display: flex;
