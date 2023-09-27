@@ -30,7 +30,6 @@ gameForm.addEventListener('submit', function (e) {
         //Checa se a lista está vazia para mostrar a mensagem
         checkEmptyList();
     }
-    console.log(gameListArray);
 });
 
 // Verifica se o jogo é favorito, se sim muda a classe e estrela
@@ -130,7 +129,6 @@ function setStar(element) {
         insertGameBefore(parentE, false);
     }
     saveGameList();
-    console.log(gameListArray);
 }
 
 function insertGameBefore(element, condition) {
@@ -182,7 +180,6 @@ function addLoadedElements() {
     if (localStorage.length != 0) {
         isLoad = true;
         let itens = JSON.parse(localStorage.getItem("gameList"));
-        console.log(itens);
         itens.forEach(element => {
             if (element.favorito == "Sim") {
                 addElement(element);

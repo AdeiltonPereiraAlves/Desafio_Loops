@@ -309,3 +309,63 @@ select {
     font-size: 1.3rem;
     color: gray;
 }
+
+@media (min-width: 576px) and (max-width: 990px) {
+    .game-list {
+        width: 100%;   
+        flex-direction: column;
+  
+        /* margin-left: 95px; */
+    }
+
+    .form-1, .lista {
+        background-color: var(--bg-main);
+        width: 27.5rem;
+        height: 33rem;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        vertical-align: middle; 
+    }
+}
+
+@media (max-width:575px)
+{
+    .game-list {
+        width: 100%;
+        flex-direction: column;
+  
+        /* margin-left: 95px; */
+    }
+
+    .form-1, .lista {
+        background-color: var(--bg-main);
+        width: 22.5rem;
+        height: 33rem;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        
+        vertical-align: middle;
+    }
+
+    #name{
+        width: 320px;
+    }
+    #Ldescricao {
+        min-width: 320px; 
+        min-height: 150px; 
+        font-size: 1.0rem;
+        resize: none; 
+       
+        font-weight: bold;
+    }
+    .jogo-container{
+        width: 320px;
+    }
+    
+    .jogo-container-fav{
+        width: 320px;       
+    }
+
+}

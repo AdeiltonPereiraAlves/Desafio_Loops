@@ -50,3 +50,25 @@ h1{
     font-weight: 900;
     line-height: normal;
 }
+
+@media (max-width:575px)
+{
+    span{
+        color: var(--titulo-main);
+        text-align: center;
+        font-family:  'Inter', sans-serif;
+        font-size: 1.9rem;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+       
+    }
+    h1{
+        color: var(--bg-main);
+        font-family: Inter;
+        font-size: 1.9rem;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+    }
+}
