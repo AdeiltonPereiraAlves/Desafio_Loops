@@ -332,7 +332,7 @@ select {
 @media (max-width:575px)
 {
     .game-list {
-        width: 100%;
+        
         flex-direction: column;
   
         /* margin-left: 95px; */
@@ -361,11 +361,15 @@ select {
         font-weight: bold;
     }
     .jogo-container{
-        width: 320px;
+        max-width: 320px;
     }
     
     .jogo-container-fav{
         width: 320px;       
+    }
+
+    .scroll{
+        width: 340px;
     }
 
 }
